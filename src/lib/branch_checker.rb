@@ -7,7 +7,7 @@ class BranchChecker
   end
 
   def on_default_branch?
-    system("git fetch origin/#{default_branch_name}")
+    system("git fetch origin #{default_branch_name}")
     system("git branch --contains | grep -q origin/#{default_branch_name}")
   end
 
