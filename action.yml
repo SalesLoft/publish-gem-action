@@ -4,6 +4,10 @@ inputs:
   gem_repo_url:
     description: 'Authenticated upload URL for our gem repo'
     required: true
+  default_branch_name:
+    description: "The name of this repository's default branch"
+    required: true
+    default: master
 runs:
   using: 'docker'
   image: 'Dockerfile'
