@@ -1,0 +1,9 @@
+name: 'Publish Gem'
+description: 'Publish gem to our internal repository'
+inputs:
+  gem_repo_url:
+    description: 'Authenticated upload URL for our gem repo'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
