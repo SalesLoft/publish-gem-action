@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    king_konf (1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  king_konf
+
+BUNDLED WITH
+   2.1.1
