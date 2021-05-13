@@ -7,5 +7,5 @@ puts "CWD: #{`pwd`}"
 puts "git status"
 system("git status")
 
-puts "Content"
-system("find .")
+puts "git branch -a"
+system("git branch -a")
