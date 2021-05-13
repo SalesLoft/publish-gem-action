@@ -4,9 +4,12 @@ RSpec.describe BranchChecker do
   subject { BranchChecker.new("master") }
 
   describe "#on_default_branch?" do
-    it "executes the correct command" do
+    it "executes the correct commands" do
       expect(subject).to receive(:system).with(
-        "git branch --contains | grep -q master"
+        "git fetch origin/master"
+      )
+      expect(subject).to receive(:system).with(
+        "git branch --contains | grep -q origin/master"
       )
 
       subject.on_default_branch?
