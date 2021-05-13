@@ -2,10 +2,13 @@
 
 puts ENV.map { |entry| entry.join(": ") }
 
-puts "CWD: #{`pwd`}"
+def query(cmd)
+  puts cmd
+  system(cmd)
+end
 
-puts "git status"
-system("git status")
+query("git remote -v")
 
-puts "git branch -a"
-system("git branch -a")
+query("git fetch --all")
+
+query("git branch -a")
