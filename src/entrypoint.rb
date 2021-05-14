@@ -9,6 +9,4 @@ end
 
 query("git remote -v")
 
-query("git fetch --all")
-
-query("git branch -a")
+query("git branch -a --contains")
