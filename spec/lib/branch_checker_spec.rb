@@ -9,7 +9,7 @@ RSpec.describe BranchChecker do
         "git fetch origin master"
       )
       expect(subject).to receive(:system).with(
-        "git branch --contains | grep -q origin/master"
+        %{git branch -a --contains | grep -q "^  remotes/origin/master$"}
       )
 
       subject.on_default_branch?
