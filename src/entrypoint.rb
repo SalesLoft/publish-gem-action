@@ -4,6 +4,7 @@ $LOAD_PATH.unshift File.expand_path("lib", File.dirname(__FILE__))
 require "gem_builder"
 require "input"
 require "github_vars"
+require "output"
 
 begin
   input = Input.new
@@ -26,15 +27,15 @@ begin
   puts "Successfully published #{version}!"
 
 rescue KingKonf::ConfigError => e
-  $stderr.puts "Configuration Error: #{e}"
+  Output.error "Configuration Error: #{e}"
   exit -1
 rescue BranchChecker::InvalidBranch => e
-  $stderr.puts "Invalid Branch: #{e}"
+  Output.error "Invalid Branch: #{e}"
   exit -1
 rescue VersionChecker::VersionMismatch => e
-  $stderr.puts "Version Mismatch: #{e}"
+  Output.error "Version Mismatch: #{e}"
   exit -1
 rescue GemRepo::UploadFailed => e
-  $stderr.puts "An error occurred while uploading the gem: #{e}"
+  Output.error "An error occurred while uploading the gem: #{e}"
   exit -1
 end
