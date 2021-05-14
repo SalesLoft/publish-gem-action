@@ -1,0 +1,25 @@
+name: Spec Suite
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  rspec:
+    name: RSpec
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.58.1
+        with:
+          ruby-version: 2.7.3
+          bundler: 1
+
+      - name: Install Dependencies
+        run: bundle install
+
+      - name: Run Tests
+        run: bundle exec rspec
