@@ -8,6 +8,10 @@ inputs:
     description: "The name of this repository's default branch"
     required: true
     default: master
+  working_directory:
+    description: 'The directory that contains the gem to publish'
+    required: true
+    default: '.'
 runs:
   using: 'docker'
   image: 'Dockerfile'

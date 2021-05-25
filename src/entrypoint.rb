@@ -7,13 +7,11 @@ require "github_vars"
 require "output"
 
 begin
-  input = Input.new
-  github_vars = GithubVars.new
-  builder = GemBuilder.new(Dir.pwd)
+  input = Input.new.tap(&:validate!)
+  github_vars = GithubVars.new.tap(&:validate!)
+  builder = GemBuilder.new(input.working_directory)
   version = builder.version
 
-  input.validate!
-  github_vars.validate!
   input.branch_checker.require_default_branch! unless version.prerelease?
   github_vars.version_checker.assert_version!(version)
 
