@@ -44,6 +44,14 @@ with:
   default_branch_name: main
 ```
 
+If your gem is in a subdirectory, specify the `working_directory` in the `with` section:
+
+```yaml
+with:
+  gem_repo_url: ${{ secrets.GEM_REPO_UPLOAD_URL }}
+  working_directory: ./ruby
+```
+
 ## Usage
 
 This will run every time a new tag starting with `v` is pushed.

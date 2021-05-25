@@ -12,6 +12,9 @@ class Input < KingKonf::Config
   desc "The name of this repository's default branch"
   string :default_branch_name, required: true
 
+  desc "The directory that contains the gem to publish"
+  string :working_directory, required: true
+
   def gem_repo
     @gem_repo ||= GemRepo.new(gem_repo_url)
   end
